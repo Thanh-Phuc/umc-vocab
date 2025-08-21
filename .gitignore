@@ -128,11 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Data files (add your specific data files here)
-data/
-*.csv
-*.xlsx
-*.xls
+# Data files (exclude actual data but keep directory structure)
+data/*.csv
+data/*.xlsx
+data/*.xls
+# But allow data directory and README files
+!data/README.md
+!data/.gitkeep
 
 # Streamlit
 .streamlit/

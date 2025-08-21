@@ -1,0 +1,12 @@
+# This file ensures the data directory is included in Git
+# The actual data files are ignored via .gitignore for security and size reasons
+
+# To use the application, place your vocabulary files in this directory:
+# - df_grouped_SNOMED.csv
+# - data_snomed_vi.csv  
+# - df_grouped_LOINC.csv
+# - tong_hop_loinc_2025-08-20_07-23-07.csv
+# - df_grouped_ICD10.csv
+# - Danh mục ICD-10 kcb.xlsx
+
+# See README.md for detailed requirements
