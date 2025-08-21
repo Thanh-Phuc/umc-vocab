@@ -128,13 +128,19 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Data files (exclude actual data but keep directory structure)
+# Data files (exclude actual data but keep directory structure and essential vocab files)
 data/*.csv
 data/*.xlsx
 data/*.xls
-# But allow data directory and README files
+# But allow data directory, README files, and essential vocabulary files
 !data/README.md
 !data/.gitkeep
+!data/df_grouped_SNOMED.csv
+!data/data_snomed_vi.csv
+!data/df_grouped_LOINC.csv
+!data/tong_hop_loinc_2025-08-20_07-23-07.csv
+!data/df_grouped_ICD10.csv
+!data/Danh\ mục\ ICD-10\ kcb.xlsx
 
 # Streamlit
 .streamlit/
