@@ -1,0 +1,104 @@
+/* Custom CSS styles for UMC Vocabulary Search Portal */
+
+.main-header {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.search-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 1rem;
+}
+
+.stats-box {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.vocab-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.stSelectbox > div > div {
+    background-color: #f8f9fa;
+}
+
+.sidebar-info {
+    background: #f0f2f6;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.metric-container {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Additional responsive design */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .search-box {
+        padding: 1rem;
+    }
+    
+    .metric-container {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Loading spinner customization */
+.stSpinner > div {
+    border-top-color: #667eea !important;
+}
+
+/* Button styling */
+.stButton > button {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Download button styling */
+.stDownloadButton > button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.stDownloadButton > button:hover {
+    background: #45a049;
+}
