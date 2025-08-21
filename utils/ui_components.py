@@ -93,9 +93,11 @@ def render_sidebar_info():
 
 def render_metric_card(value, label, color="#667eea"):
     """Render a metric card with custom styling."""
+    # Format numeric values with commas, leave strings as-is
+    formatted_value = f"{value:,}" if isinstance(value, (int, float)) else str(value)
     return f"""
     <div class="metric-container">
-        <h3 style="color: {color}; margin: 0;">{value:,}</h3>
+        <h3 style="color: {color}; margin: 0;">{formatted_value}</h3>
         <p style="margin: 0; color: #666;">{label}</p>
     </div>
     """
