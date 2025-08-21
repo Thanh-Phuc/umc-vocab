@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6052e225e6f8ed990cb14777d92d049935db5eca89adccb549d885238b13ca78
-size 16596547
+LOINC Number,Long Common Name
+718-7,Hemoglobin [Mass/volume] in Blood
+2345-7,Glucose [Mass/volume] in Serum or Plasma
+2093-3,Cholesterol [Mass/volume] in Serum or Plasma

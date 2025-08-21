@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:76a430e5bc7a5c35b8163efbe66fb09ecfec26f434186703e16a64bbdf04c424
-size 32427146
+concept_id,concept_name,concept_code,domain_id,vocabulary_id,concept_class_id,standard_concept
+45678,Hemoglobin,718-7,Measurement,LOINC,Lab Test,S
+56789,Glucose,2345-7,Measurement,LOINC,Lab Test,S
+67890,Cholesterol,2093-3,Measurement,LOINC,Lab Test,S

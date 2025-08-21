@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:14f0c9455d55ebe5dc90fb33d26c06c5bdb82f21c951031064e8a0b1b3077ce8
-size 168445401
+concept_id,concept_name,concept_code,domain_id,vocabulary_id,concept_class_id,standard_concept
+12345,Hypertension,38341003,Condition,SNOMED,Clinical finding,S
+23456,Diabetes mellitus,73211009,Condition,SNOMED,Clinical finding,S
+34567,Asthma,195967001,Condition,SNOMED,Clinical finding,S

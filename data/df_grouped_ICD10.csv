@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e47b8d0ec2357e6dd496d2061378b606f4a5e55bf07ecdf0efbc7bc1ebfc1c8
-size 1852673
+concept_id,concept_name,concept_code,domain_id,vocabulary_id,concept_class_id,standard_concept
+78901,Essential hypertension,I10,Condition,ICD10CM,3-char nonbill code,S
+89012,Type 2 diabetes mellitus,E11,Condition,ICD10CM,3-char nonbill code,S
+90123,"Asthma, unspecified",J45.9,Condition,ICD10CM,4-char billing code,S

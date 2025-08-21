@@ -8,7 +8,20 @@ from config import BASE_DIR, DATA_FILES
 def load_csv(file_path):
     """Load CSV file with error handling."""
     try:
-        return pd.read_csv(file_path)
+        df = pd.read_csv(file_path)
+        
+        # Check if this is a Git LFS pointer file
+        if len(df.columns) == 1 and 'version' in df.columns[0]:
+            st.error(f"📁 {file_path.name} appears to be a Git LFS pointer file. Please ensure Git LFS files are downloaded.")
+            return pd.DataFrame()
+        
+        return df
+    except pd.errors.EmptyDataError:
+        st.error(f"📁 {file_path.name} is empty or contains no data")
+        return pd.DataFrame()
+    except FileNotFoundError:
+        st.error(f"📁 {file_path.name} not found")
+        return pd.DataFrame()
     except Exception as e:
         st.error(f"Error reading {file_path.name}: {e}")
         return pd.DataFrame()
@@ -35,6 +48,7 @@ def load_vocabulary_data(vocab_type):
     
     config_key = vocab_map.get(vocab_type)
     if not config_key:
+        st.error(f"Unknown vocabulary type: {vocab_type}")
         return pd.DataFrame()
     
     config = DATA_FILES[config_key]
@@ -42,19 +56,31 @@ def load_vocabulary_data(vocab_type):
     # Load main vocabulary file
     main_df = load_csv(BASE_DIR / config["main"])
     
+    if main_df.empty:
+        st.error(f"❌ Could not load main vocabulary file for {vocab_type}")
+        return pd.DataFrame()
+    
     # Load Vietnamese translation file
     if config_key == "icd":
         try:
             vi_df = pd.read_excel(BASE_DIR / config["vietnamese"])
+        except FileNotFoundError:
+            st.error(f"📁 Vietnamese translation file not found: {config['vietnamese']}")
+            vi_df = pd.DataFrame()
         except Exception as e:
-            st.error(f"Error reading Excel file: {e}")
+            st.error(f"Error reading Excel file {config['vietnamese']}: {e}")
             vi_df = pd.DataFrame()
     else:
         vi_df = load_csv(BASE_DIR / config["vietnamese"])
     
     # Return empty if either file failed to load
-    if main_df.empty or vi_df.empty:
+    if main_df.empty:
         return pd.DataFrame()
+    
+    if vi_df.empty:
+        st.warning(f"⚠️ Vietnamese translations not available for {vocab_type}")
+        main_df['concept_name_vi'] = None
+        return reorder_columns(main_df)
     
     # Merge data based on vocabulary type
     main_df = merge_vocabulary_data(main_df, vi_df, config)
@@ -64,6 +90,12 @@ def load_vocabulary_data(vocab_type):
 
 def merge_vocabulary_data(main_df, vi_df, config):
     """Merge main vocabulary data with Vietnamese translations."""
+    
+    # Check if concept_code column exists in main dataframe
+    if 'concept_code' not in main_df.columns:
+        st.error("Missing 'concept_code' column in main vocabulary file.")
+        main_df['concept_name_vi'] = None
+        return main_df
     
     # Convert concept_code to string for matching
     main_df['concept_code'] = main_df['concept_code'].astype(str)
